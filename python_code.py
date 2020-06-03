@@ -224,7 +224,7 @@ def hdbtest():
     clusterer = hdbscan.HDBSCAN(min_cluster_size=10, metric='haversine',
     cluster_selection_epsilon=epsilon, cluster_selection_method = 'eom')
     hdb_td_clusters = clusterer.fit(driverlatlngRad)
-    print (hdb_td_clusters._labels)
+    print (clusterer.labels_)
 
 # Great circle method for calculating distance based on Latitude and Longitude.  It can be found many places on the internet.
 from math import radians, cos, sin, asin, sqrt 
@@ -262,3 +262,9 @@ if __name__ == '__main__':
     dftester(data)
     kmeanstests()
     hdbtest()
+
+    print ("counting ", end ='')
+    for a in range (1,100):
+        print (". ", end="")
+    print ("done")
+    print ("new line")
